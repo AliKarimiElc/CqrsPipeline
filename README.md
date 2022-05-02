@@ -14,6 +14,7 @@ You can define your commands in three ways:
 ## Queries
 You can define your commands in one ways yet but we are developing new ways for you in next versions:
 
+1 - Inhrit from IQuery<TData>
 
 ## Validation
 CqrsPipeline use FluentValidation library for validating your commands ,You just have to create the validator for commands or queries and CqrsPipeline find them and check on your commands
