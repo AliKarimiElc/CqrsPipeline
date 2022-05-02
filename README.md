@@ -4,6 +4,7 @@ CqrsPipeline is a light laibrary for implementing CQRS patern in your software.y
 
 ## Commands
 You can define your commands in three ways:
+
 1 - Inherit from ICommand : For commands that have no output data and only the result of their correct execution or their errors are important
 2 - Inherit from ICommand<TData> : For commands that have output data and in addition to the result of their correct execution or their errors, the output data must also be returned
 3 - Inherit from ICommand<TResult,TData> : For commands that have output data and in addition to the result of their correct execution or their errors, the output data must also be returned and you want to change the format of the output result and add items to it
