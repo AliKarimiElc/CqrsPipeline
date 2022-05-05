@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using CqrsPipeline.DataAccess;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CqrsPipeline.DependencyInjection
@@ -42,5 +43,48 @@ namespace CqrsPipeline.DependencyInjection
         }
 
         #endregion
+
+        
+        
+        #region DataAccess
+
+        /// <summary>
+        /// Register all command repositories that inherit from ICommandRepository
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="commandRepositoryAssembly"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddCommandRepositories(this IServiceCollection services,
+            IEnumerable<Assembly> commandRepositoryAssembly)
+        {
+            return services.AddWithTransientLifetime(commandRepositoryAssembly, typeof(ICommandRepository<,>));
+        }
+
+        /// <summary>
+        /// Register all query repositories that inherit from IQueryRepository
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="queryRepositoryAssembly"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddQueryRepositories(this IServiceCollection services,
+            IEnumerable<Assembly> queryRepositoryAssembly)
+        {
+            return services.AddWithTransientLifetime(queryRepositoryAssembly, typeof(IQueryRepository<,>));
+        }
+
+        /// <summary>
+        /// Register UnitOfWork repositories that inherit from IUnitOfWork
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="unitOfWorkAssembly"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddUnitOfWork(this IServiceCollection services,
+            IEnumerable<Assembly> unitOfWorkAssembly)
+        {
+            return services.AddWithTransientLifetime(unitOfWorkAssembly, typeof(IUnitOfWork));
+        }
+
+        #endregion
+
     }
 }

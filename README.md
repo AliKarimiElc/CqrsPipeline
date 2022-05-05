@@ -1,3 +1,5 @@
+![CqrsPipeline logo](Icon.png)
+
 # CqrsPipeline 
 
 CqrsPipeline is a light laibrary for implementing CQRS patern in your software.you can define your command and query objects and send to pipeline, CqrsPipeline send them to that`s handlers
@@ -25,3 +27,8 @@ CqrsPipeline has an exception model that if you create exceptions to this model,
 
 ## Data access layer
 Data access layer developed for entity framework and microsoft sql server
+
+## How to use
+Install CqrsPipeline with nuget packages
+
+CqrsPipeline : 
