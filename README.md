@@ -4,6 +4,9 @@
 
 Easy to use by nuget package :
 
+
+![Nuget logo](nuget.png)
+
 [CqrsPipeline](https://www.nuget.org/packages/CqrsPipeline/)
 
 [CqrsPipeline.DataAccess](https://www.nuget.org/packages/CqrsPipeline.DataAccess/)
