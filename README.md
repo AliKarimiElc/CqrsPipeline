@@ -31,4 +31,9 @@ Data access layer developed for entity framework and microsoft sql server
 ## How to use
 Install CqrsPipeline with nuget packages
 
-CqrsPipeline : 
+[CqrsPipeline](https://www.nuget.org/packages/CqrsPipeline/) : The core layer of CqrsPipeline. Commands , queries , handlers and dispatchers definition put in it.
+[CqrsPipeline.DataAccess](https://www.nuget.org/packages/CqrsPipeline.DataAccess/) : This is base layer for data access
+[CqrsPipeline.DataAccess](https://www.nuget.org/packages/CqrsPipeline.DataAccess/) : This is base layer for data access
+[CqrsPipeline.DataAccess.EntityFramework](https://www.nuget.org/packages/CqrsPipeline.DataAccess.EntityFramework/) : There is Some extenssion methods and tools for EF Core in this layer
+[CqrsPipeline.DataAccess.EntityFramework.SqlServer](https://www.nuget.org/packages/CqrsPipeline.DataAccess.EntityFramework.SqlServer/) : Default implementations for DataAccess Layer for EF Core , Sql server
+[CqrsPipeline.DataAccess.DependencyInjection](https://www.nuget.org/packages/CqrsPipeline.DependencyInjection/) : Some extension methods for register services
