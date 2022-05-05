@@ -24,5 +24,4 @@ See Validators in FluentValidation
 CqrsPipeline has an exception model that if you create exceptions to this model, it will handle it for you and turn it into an error model.
 
 ## Data access layer
-
 Data access layer is under development
