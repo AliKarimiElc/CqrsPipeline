@@ -1,7 +1,6 @@
 ﻿using CqrsPipeline.Commands.Dispatchers;
 using CqrsPipeline.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace CqrsPipeline.Samples.BasicConsoleValidation;
 
