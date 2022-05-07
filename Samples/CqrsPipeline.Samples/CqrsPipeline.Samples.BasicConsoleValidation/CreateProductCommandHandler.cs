@@ -1,6 +1,6 @@
 ﻿using CqrsPipeline.Commands;
 
-namespace CqrsPipeline.Samples.BasicConsole;
+namespace CqrsPipeline.Samples.BasicConsoleValidation;
 
 internal class CreateProductCommandHandler:ICommandHandler<CreateProductCommand>
 {

@@ -1,11 +1,10 @@
-﻿namespace CqrsPipeline.Samples.BasicConsole
+﻿namespace CqrsPipeline.Samples.BasicConsole;
+
+internal class Products
 {
-    internal class Products
+    public Products()
     {
-        public Products()
-        {
-            ProductList = new List<Product>();
-        }
-        public IList<Product> ProductList { get; private set; }
+        ProductList = new List<Product>();
     }
+    public IList<Product> ProductList { get; private set; }
 }

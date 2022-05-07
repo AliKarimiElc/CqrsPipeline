@@ -10,6 +10,7 @@
 	<ItemGroup>
 		<PackageReference Include="CqrsPipeline" Version="1.0.0" />
 		<PackageReference Include="CqrsPipeline.DependencyInjection" Version="1.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
 	</ItemGroup>
 
 </Project>
