@@ -59,3 +59,107 @@ Install CqrsPipeline with nuget packages
 [CqrsPipeline.DataAccess.EntityFramework.SqlServer](https://www.nuget.org/packages/CqrsPipeline.DataAccess.EntityFramework.SqlServer/) : Default implementations for DataAccess Layer for EF Core , Sql server
 
 [CqrsPipeline.DataAccess.DependencyInjection](https://www.nuget.org/packages/CqrsPipeline.DependencyInjection/) : Some extension methods for register services
+
+
+## Getting Started
+
+1 - Create new project 
+
+2 - Install packages :
+
+[CqrsPipeline](https://www.nuget.org/packages/CqrsPipeline/)
+
+[CqrsPipeline.DataAccess](https://www.nuget.org/packages/CqrsPipeline.DataAccess/)
+
+3 - Define your command object and Inherit it from ICommand
+
+```C#
+internal class CreateProductCommand:ICommand
+{
+    public string? Name { get; set; }
+    public string? Code { get; set; }
+    public float? Price { get; set; }
+}
+```
+
+4 - Define command validator class for this command. create a class that inherit from AbstractValidator<YOUR_COMMAND_CLASS>
+    and write your validation rules. command validator is not mandatory
+
+```C#
+public class CreateProductCommandValidator:AbstractValidator<CreateProductCommand>
+{
+    public CreateProductCommandValidator()
+    {
+        RuleFor(x => x.Code).MinimumLength(3).WithMessage("Product code minimum length is 3");
+    }
+}
+```
+
+5 - Define command handler. create a class that implement ICommandHandler<YOUR_COMMAND_CLASS>
+
+```C#
+internal class CreateProductCommandHandler:ICommandHandler<CreateProductCommand>
+{
+    private readonly Products _products;
+
+    public CreateProductCommandHandler(Products products)
+    {
+        _products = products;
+    }
+
+    public async Task<CommandResult> ExecuteAsync(CreateProductCommand command)
+    {
+        return await Task.Run(() =>
+        {
+            // handling your command
+            // Return Success or Error
+        });
+    }
+
+    public async Task<CommandResult> ExecuteAsync(CreateProductCommand command, CancellationToken cancellationToken)
+    {
+        return await Task.Run(() => ExecuteAsync(command), cancellationToken);
+    }
+}
+```
+
+6 - Register services, Add CqrsPipeline services and validators and handlers in ServiceCollection. you most add Logging if your project is not a hosting project, for example your project is a console application
+
+```C#
+    services.AddCommandPipeline(assembliesForSearch)
+            .AddQueryPipeline(assembliesForSearch)
+            .AddFluentValidators(assembliesForSearch)
+```
+
+7 - Inject ICommandDispatcher in your main code or get it from service.
+
+```C#
+    _commandDispatcher = _serviceProvider.GetService<ICommandDispatcher>();
+
+```
+
+8 - Create new instance of command or you can get command from a web api. send command with command dispatcher and get command result.
+
+```C#
+    var command = new CreateProductCommand { Code = "A123", Name = "Sample product name", Price = 20000 };
+    var commandResult = _commandDispatcher?.SendAsync(command).Result;
+```
+
+
+### How to return success result in handler
+
+return new CommandResult. you can return a SuccessMessage 
+
+```C#
+    return new CommandResult("Message for success execution");
+
+```
+
+### How to return error in handler
+
+return new CommandResult With Error, Property name and value is not mandatory
+
+```C#
+    return new CommandResult(new CommandError(CODE, MESSAGE, nameof(PROPERTY_NAME),PROPERTY_VALUE));
+
+```
