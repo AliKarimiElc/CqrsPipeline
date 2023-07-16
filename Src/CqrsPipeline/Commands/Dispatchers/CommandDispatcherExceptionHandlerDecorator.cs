@@ -75,8 +75,8 @@ namespace CqrsPipeline.Commands.Dispatchers
                 commandResult = Activator.CreateInstance(makeMe) ?? throw new Exception();
             }
 
-            if (exception.InputParameters?.Any() ?? false)
-                commandResult.AddError(exception.InputParameters.Select(x =>
+            if (exception.ExceptionParameters?.Any() ?? false)
+                commandResult.AddError(exception.ExceptionParameters.Select(x =>
                     new CommandError(exception.ErrorCode, exception.Message, x.PropertyName)).ToList());
             else
                 commandResult.AddError(new CommandError(exception.ErrorCode, exception.Message));
@@ -95,8 +95,8 @@ namespace CqrsPipeline.Commands.Dispatchers
                 commandResult = Activator.CreateInstance(makeMe) ?? throw new Exception();
             }
 
-            if (exception.InputParameters?.Any() ?? false)
-                commandResult.AddError(exception.InputParameters.Select(x =>
+            if (exception.ExceptionParameters?.Any() ?? false)
+                commandResult.AddError(exception.ExceptionParameters.Select(x =>
                     new CommandError(exception.ErrorCode, exception.Message, x.PropertyName)).ToList());
             else
                 commandResult.AddError(new CommandError(exception.ErrorCode, exception.Message));
@@ -115,8 +115,8 @@ namespace CqrsPipeline.Commands.Dispatchers
                 commandResult = Activator.CreateInstance(makeMe) ?? throw new Exception();
             }
 
-            if (exception.InputParameters?.Any() ?? false)
-                commandResult.AddError(exception.InputParameters.Select(x =>
+            if (exception.ExceptionParameters?.Any() ?? false)
+                commandResult.AddError(exception.ExceptionParameters.Select(x =>
                     new CommandError(exception.ErrorCode, exception.Message, x.PropertyName)).ToList());
             else
                 commandResult.AddError(new CommandError(exception.ErrorCode, exception.Message));

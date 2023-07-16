@@ -26,7 +26,6 @@ namespace CqrsPipeline.DependencyInjection
         }
 
         #endregion
-
         #region Query
 
         /// <summary>

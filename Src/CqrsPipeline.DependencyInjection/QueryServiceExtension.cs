@@ -18,7 +18,13 @@ namespace CqrsPipeline.DependencyInjection
         /// <returns></returns>
         public static IServiceCollection AddQueryHandlers(this IServiceCollection services,
             IEnumerable<Assembly> assembliesForSearch) =>
-            services.AddWithTransientLifetime(assembliesForSearch, typeof(IQueryHandler<,,>),
+            services.AddWithTransientLifetime(assembliesForSearch
+                , typeof(IQueryHandler<,,>),
+                typeof(IQueryDispatcher));
+
+        public static IServiceCollection AddQueryHandlers(this IServiceCollection services) =>
+            services.AddWithTransientLifetime(AppDomain.CurrentDomain.GetAssemblies()
+                , typeof(IQueryHandler<,,>),
                 typeof(IQueryDispatcher));
     }
 }

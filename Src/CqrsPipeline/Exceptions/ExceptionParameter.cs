@@ -3,7 +3,7 @@
     /// <summary>
     /// Input parameters for exceptions 
     /// </summary>
-    public class InputParameter
+    public class ExceptionParameter
     {
         /// <summary>
         /// Name of input parameter

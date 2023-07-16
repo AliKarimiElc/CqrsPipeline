@@ -15,11 +15,32 @@ public static class CommandServiceExtension
     /// 
     /// </summary>
     /// <param name="services"></param>
+    /// <returns></returns>
+    public static IServiceCollection AddFluentValidators(this IServiceCollection services) =>
+        services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="services"></param>
     /// <param name="assembliesForSearch"></param>
     /// <returns></returns>
     public static IServiceCollection AddFluentValidators(this IServiceCollection services,
         IEnumerable<Assembly> assembliesForSearch) =>
         services.AddValidatorsFromAssemblies(assembliesForSearch);
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="services"></param>
+    /// <returns></returns>
+    public static IServiceCollection AddCommandHandlers(this IServiceCollection services) =>
+        services.AddWithTransientLifetime(AppDomain.CurrentDomain.GetAssemblies()
+            , typeof(ICommandHandler<>)
+            , typeof(ICommandHandler<,>)
+            , typeof(ICommandHandler<,,>));
+
 
     /// <summary>
     /// 
@@ -29,8 +50,10 @@ public static class CommandServiceExtension
     /// <returns></returns>
     public static IServiceCollection AddCommandHandlers(this IServiceCollection services,
         IEnumerable<Assembly> assembliesForSearch) =>
-        services.AddWithTransientLifetime(assembliesForSearch, typeof(ICommandHandler<>),
-            typeof(ICommandHandler<,>), typeof(ICommandHandler<,,>));
+        services.AddWithTransientLifetime(assembliesForSearch
+            , typeof(ICommandHandler<>)
+            , typeof(ICommandHandler<,>)
+            , typeof(ICommandHandler<,,>));
 
     /// <summary>
     /// 

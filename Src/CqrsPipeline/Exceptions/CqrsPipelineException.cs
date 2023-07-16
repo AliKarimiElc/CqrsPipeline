@@ -8,7 +8,7 @@ public class CqrsPipelineException:Exception
     /// <summary>
     /// Input parameters of exception
     /// </summary>
-    public InputParameter[]? InputParameters { get; set; }
+    public ExceptionParameter[]? ExceptionParameters { get; set; }
 
 
     /// <summary>
@@ -21,15 +21,15 @@ public class CqrsPipelineException:Exception
     /// </summary>
     /// <param name="message"></param>
     /// <param name="parameters"></param>
-    public CqrsPipelineException(string message, params InputParameter[] parameters) : base(message)
+    public CqrsPipelineException(string message, params ExceptionParameter[] parameters) : base(message)
     {
-        InputParameters = parameters;
+        ExceptionParameters = parameters;
     }
 
     /// Create new instance
-    public CqrsPipelineException(string? errorCode, string message, params InputParameter[] parameters) : base(message)
+    public CqrsPipelineException(string? errorCode, string message, params ExceptionParameter[] parameters) : base(message)
     {
-        InputParameters = parameters;
+        ExceptionParameters = parameters;
         ErrorCode = errorCode;
     }
 
