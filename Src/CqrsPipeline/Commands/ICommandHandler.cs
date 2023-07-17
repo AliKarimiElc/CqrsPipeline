@@ -27,7 +27,8 @@ public interface ICommandHandler<in TCommand> where TCommand : ICommand
 /// </summary>
 /// <typeparam name="TCommand"></typeparam>
 /// <typeparam name="TData"></typeparam>
-public interface ICommandHandler<in TCommand, TData> where TCommand : ICommand<TData>
+public interface ICommandHandler<in TCommand, TData> : ICommandHandler<TCommand>
+    where TCommand : ICommand<TData>
 {
     /// <summary>
     /// Execute command
@@ -51,7 +52,8 @@ public interface ICommandHandler<in TCommand, TData> where TCommand : ICommand<T
 /// <typeparam name="TCommand"></typeparam>
 /// <typeparam name="TResult"></typeparam>
 /// <typeparam name="TData"></typeparam>
-public interface ICommandHandler<in TCommand, TResult, TData> where TCommand : ICommand<TResult, TData>
+public interface ICommandHandler<in TCommand, TResult, TData> : ICommandHandler<TCommand,TData>
+    where TCommand : ICommand<TResult, TData>
     where TResult : CommandResult<TData>
 {
     /// <summary>

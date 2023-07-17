@@ -13,7 +13,9 @@
         /// Execute query , async
         /// </summary>
         /// <param name="query">Query object</param>
+        /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<TQueryResult> ExecuteAsync(TQuery query);
+        Task<TQueryResult> ExecuteAsync(TQuery query,
+            CancellationToken cancellationToken = new CancellationToken());
     }
 }

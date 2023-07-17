@@ -10,8 +10,8 @@ namespace CqrsPipeline.Dsl
         {
             var pipeline = service.GetPipeline();
 
-            pipeline.AddCommand<c>().ValidateWith<cv>().HandleWith<ch>();
-            pipeline.AddCommand<>()
+            pipeline.AddCommand<c>().HandleWith<ch>();
+            pipeline.AddCommand<c>().HandleWith<ch>();
         }
     }
 
