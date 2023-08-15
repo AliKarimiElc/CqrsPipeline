@@ -16,5 +16,4 @@ public interface ICommandPipeline
         CancellationToken cancellationToken = new())
         where TResult : CommandResult<TData>
         where TCommand : ICommand<TResult, TData>;
-
 }

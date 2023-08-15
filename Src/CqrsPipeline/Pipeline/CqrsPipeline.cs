@@ -1,5 +1,4 @@
-﻿using System.Collections.Concurrent;
-using CqrsPipeline.Commands;
+﻿using CqrsPipeline.Commands;
 using CqrsPipeline.Pipeline.Command;
 using CqrsPipeline.Pipeline.Query;
 using CqrsPipeline.Queries;

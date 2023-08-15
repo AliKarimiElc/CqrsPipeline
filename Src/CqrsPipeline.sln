@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CqrsPipeline.DataAccess.Ent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CqrsPipeline.DataAccess.EntityFramework", "CqrsPipeline.DataAccess.EntityFramework\CqrsPipeline.DataAccess.EntityFramework.csproj", "{26BCD288-8048-436B-A9B4-BAF87A7EE0A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsPipeline.Dsl", "CqrsPipeline.Dsl\CqrsPipeline.Dsl.csproj", "{88B92295-426A-40DB-AAC5-11440284D687}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CqrsPipeline.Dsl", "CqrsPipeline.Dsl\CqrsPipeline.Dsl.csproj", "{88B92295-426A-40DB-AAC5-11440284D687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{140CAA46-537B-4DAB-97EA-0E77B179E3F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{88B92295-426A-40DB-AAC5-11440284D687}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88B92295-426A-40DB-AAC5-11440284D687}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88B92295-426A-40DB-AAC5-11440284D687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{140CAA46-537B-4DAB-97EA-0E77B179E3F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{140CAA46-537B-4DAB-97EA-0E77B179E3F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{140CAA46-537B-4DAB-97EA-0E77B179E3F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{140CAA46-537B-4DAB-97EA-0E77B179E3F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
